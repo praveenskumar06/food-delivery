@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="marginTop"></div>
+<div>
+    <a routerLink="/login">
+    <span>Go Back to Login Page</span>
+    </a>
+</div>
+
+
+<h3>Search your food here:</h3>
+<input type="text" id="myInput" [(ngModel)]="keyword" placeholder="Search for names.." title="Type in a name">
+<div>
+    <label for="rating">Search By Rating: {{rating}} or more stars </label><br>
+    <input [(ngModel)]="rating" placeholder="find by rating"/>
+    
+    <button (click)="onSubmit()">Search</button>
+  </div>
+  <div>
+    <label for="location">Search By location: </label><br>
+    <input [(ngModel)]="location" placeholder="find by location"/>
+    
+    <button (click)="onSubmitLocation()">Search</button>
+  </div>
+
+  <div>
+    <label>Search By Both: </label><br>
+    <button (click)="onSubmitLocationAndRating()">Search</button>
+  </div>
+
+  <div>
+    <label>Search By keyword: </label><br>
+    <button (click)="onSearch()">Search</button>
+  </div>
+
+
+  <ul *ngFor="let restaurant of restaurants">
+  <div class="card">
+    <img src="img_avatar.png" alt="Avatar" style="width:100%">
+    <div class="container">
+       <h4><b>Restaurant Name: {{restaurant.name}}</b></h4> 
+       <p><b>Ratings:</b> {{restaurant.ratings}}</p>
+       <p><b>Location:</b> {{restaurant.location}}</p> 
+       <a routerLink="/restaurant/{{restaurant.id}}">
+        <span>Click to buy from this restaurant.</span>
+        </a>
+    </div>
+  </div>
+</ul>

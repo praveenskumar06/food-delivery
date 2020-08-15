@@ -1,0 +1,24 @@
+<app-header></app-header>>
+<div class="marginTop"></div>
+<div>
+    <label for="foodKeyword">Search By location: </label><br>
+    <input [(ngModel)]="foodKeyword" placeholder="Find your food"/>
+    
+    <button (click)="onSubmit()">Search Food</button>
+  </div>
+
+
+<ul *ngFor="let food of foods; let i = index">
+    <div class="card">
+      <img src="img_avatar.png" alt="Avatar" style="width:100%">
+      <div class="container">
+         <h4><b>Food : {{food.foodName}}</b></h4> 
+         <p><b>Price:</b> {{food.foodPrice}}</p>
+      </div>
+      <div>Add Items:</div>
+  <button (click)="onIncrement()">+</button>  {{count$}}
+  <button (click)="onDecrement()">-</button>
+  <button (click)="reset()">Reset</button><br>
+  <div>Total Price: {{food.foodPrice*count$}}</div>
+    </div>
+  </ul>

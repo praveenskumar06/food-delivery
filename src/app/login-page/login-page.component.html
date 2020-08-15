@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="marginTop"></div>
+
+<div class="container">
+    <form>
+      <label for="usrname">Username</label>
+      <input type="text" [(ngModel)]="username" id="usrname" name="usrname" required>
+  
+      <label for="psw">Password</label>
+      <input type="password" [(ngModel)]="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      <button class="submit" (click)="onSubmit()">Login</button>  
+      <label class="invalid">{{errorMessage}}</label>    
+    </form>
+  </div>
+  <a routerLink="/search">
+    <span>go to search page skip login</span>>
+</a>
+
+
+<app-footer></app-footer>
